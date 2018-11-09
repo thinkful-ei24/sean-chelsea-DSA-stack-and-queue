@@ -14,4 +14,8 @@ function display(list) {
   console.log(result);
 }
 
-module.exports = display;
+function peek(stack) {
+  return stack.top.value;
+}
+
+module.exports = {display, peek};

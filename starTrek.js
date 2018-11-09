@@ -1,5 +1,5 @@
 'use strict';
-const display = require('./stackHelpers');
+const {peek, display} = require('./stackHelpers');
 class _Node {
   constructor(value, next) {
     this.value = value;
@@ -25,7 +25,7 @@ class StarTrek {
     this.top = newNode;
   }
 
-  pop(value) {
+  pop() {
     //in order to remove the top of the stack, you have to point
     //the pointer to the next item and that next item becomes the
     //top of the stack
@@ -41,6 +41,9 @@ class StarTrek {
   stack.push('Spock');
   stack.push('McCoy');
   stack.push('Scotty');
-
+  console.log(peek(stack));
+  display(stack);
+  stack.pop();
+  stack.pop();
   display(stack);
 })();
