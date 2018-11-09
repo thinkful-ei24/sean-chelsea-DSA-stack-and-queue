@@ -1,8 +1,8 @@
 'use strict';
-
+const display = require('./stackHelpers');
 class _Node {
   constructor(value, next) {
-    this.value = null;
+    this.value = value;
     this.next = next;
   }
 }
@@ -15,7 +15,7 @@ class StarTrek {
 
   push(value) {
     //if top of stack is empty the value is the top of the stack
-    if (!this.top) {
+    if (this.top === null) {
       return (this.top = new _Node(value, null));
     }
     //if the top already has something then create a new node
@@ -34,3 +34,13 @@ class StarTrek {
     return node.value;
   }
 }
+
+(function main() {
+  const stack = new StarTrek();
+  stack.push('Kirk');
+  stack.push('Spock');
+  stack.push('McCoy');
+  stack.push('Scotty');
+
+  display(stack);
+})();
